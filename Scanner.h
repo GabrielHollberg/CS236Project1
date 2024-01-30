@@ -15,10 +15,14 @@ public:
     {
         TokenType type;
         std::string value;
-        int line = 4;
+        int line = 1;
 
         while(std::isspace(input.at(0)))
         {
+            if(input.at(0) == '\n')
+            {
+                line++;
+            }
             input = input.substr(1);
         }
         if(input.at(0) == ',')
