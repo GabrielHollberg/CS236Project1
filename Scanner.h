@@ -4,39 +4,93 @@
 #include "Token.h"
 
 #include <cctype>
+#include <vector>
+#include <iostream>
 
 class Scanner
 {
 public:
     Scanner(const std::string &input)
-    : input(input) {}
-
-    Token scanToken()
+    : input(input)
     {
-        TokenType type;
-        std::string value;
+        scanTokens();
+    }
+
+    std::string toString() const
+    {
+        std::string result = "";
+
+        for(int i = 0; i < tokens.size(); i++)
+        {
+            result += tokens.at(i)->toString();
+        }
+
+        return result;
+    }
+
+    void scanTokens()
+    {
         int line = 1;
 
-        while(std::isspace(input.at(0)))
+        while(!input.empty())
         {
-            if(input.at(0) == '\n')
+            while(!input.empty() && std::isspace(input.at(0)))
             {
-                line++;
+                if(input.at(0) == '\n')
+                {
+                    line++;
+                }
+                if(input.size() > 1)
+                {
+                    input = input.substr(1);
+                }
+                else
+                {
+                    input = "";
+                }
             }
-            input = input.substr(1);
-        }
-        if(input.at(0) == ',')
-        {
-            type = COMMA;
-            value = ",";
-            input = input.substr(1);
-        }
+            if(!input.empty())
+            {
+                Token* newToken = new Token();
 
-        return Token(type, value, line);
+                if(input.at(0) == ',')
+                {
+                    newToken->setType(COMMA);
+                    newToken->setValue(",");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else
+                {
+                    newToken->setType(UNDEFINED);
+                    newToken->setValue("?");
+                    newToken->setLine(line);
+
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+
+                tokens.push_back(newToken);
+            }
+        }
     }
 
 private:
     std::string input;
+    std::vector<Token*> tokens;
 };
 
 #endif

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <sstream>
+#include <iostream>
 
 enum TokenType
 {
@@ -28,6 +29,8 @@ enum TokenType
 class Token
 {
 public:
+    Token()
+    : type(UNDEFINED), value(""), line(0) {}
     Token(TokenType type, std::string value, int line)
     : type(type), value(value), line(line) {}
     ~Token() {}
@@ -92,10 +95,25 @@ public:
         return result;
     }
 
+    void setType(TokenType type)
+    {
+        this->type = type;
+    }
+
+    void setValue(std::string value)
+    {
+        this->value = value;
+    }
+
+    void setLine(int line)
+    {
+        this->line = line;
+    }
+
     std::string toString() const
     {
         std::stringstream out;
-        out << "(" << typeName(type) << "," << "\"" << "," << "\"" << "," << line << ")";
+        out << "(" << typeName(type) << "," << "\"" << "," << "\"" << "," << line << ")" << std::endl;
         return out.str();
     }
 

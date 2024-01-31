@@ -22,10 +22,7 @@ int main(int argc, char* argv[])
 
     Scanner s = Scanner(ss.str());
 
-    Token t = s.scanToken();
-    std::cout << t.toString() << std::endl;
-
-    delete &s;
+    std::cout << s.toString();
 
     return 0;
 }
