@@ -67,10 +67,178 @@ public:
                         input = "";
                     }
                 }
+                else if(input.at(0) == '.')
+                {
+                    newToken->setType(PERIOD);
+                    newToken->setValue(".");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.at(0) == '?')
+                {
+                    newToken->setType(Q_MARK);
+                    newToken->setValue("?");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.at(0) == '(')
+                {
+                    newToken->setType(LEFT_PAREN);
+                    newToken->setValue("(");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.at(0) == ')')
+                {
+                    newToken->setType(RIGHT_PAREN);
+                    newToken->setValue(")");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.substr(0, 2) == ":-")
+                {
+                    newToken->setType(COLON_DASH);
+                    newToken->setValue(":-");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(2);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.at(0) == ':')
+                {
+                    newToken->setType(COLON);
+                    newToken->setValue(":");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.at(0) == '*')
+                {
+                    newToken->setType(MULTIPLY);
+                    newToken->setValue("*");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.at(0) == '+')
+                {
+                    newToken->setType(ADD);
+                    newToken->setValue("+");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(1);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.substr(0, 7) == "Schemes")
+                {
+                    newToken->setType(SCHEMES);
+                    newToken->setValue("Schemes");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(7);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.substr(0, 5) == "Facts")
+                {
+                    newToken->setType(FACTS);
+                    newToken->setValue("Facts");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(5);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.substr(0, 5) == "Rules")
+                {
+                    newToken->setType(RULES);
+                    newToken->setValue("Rules");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(5);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
+                else if(input.substr(0, 7) == "Queries")
+                {
+                    newToken->setType(QUERIES);
+                    newToken->setValue("Queries");
+                    newToken->setLine(line);
+                    if(input.size() > 1)
+                    {
+                        input = input.substr(7);
+                    }
+                    else
+                    {
+                        input = "";
+                    }
+                }
                 else
                 {
                     newToken->setType(UNDEFINED);
-                    newToken->setValue("?");
+                    newToken->setValue(" ");
                     newToken->setLine(line);
 
                     if(input.size() > 1)

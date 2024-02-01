@@ -113,7 +113,7 @@ public:
     std::string toString() const
     {
         std::stringstream out;
-        out << "(" << typeName(type) << "," << "\"" << "," << "\"" << "," << line << ")" << std::endl;
+        out << "(" << typeName(type) << "," << "\"" << value << "\"" << "," << line << ")" << std::endl;
         return out.str();
     }
 
