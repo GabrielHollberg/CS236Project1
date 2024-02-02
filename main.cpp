@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     std::ifstream fileIn(argv[1]);
     std::string line;
 
-    while(!fileIn.eof())
+    while (!fileIn.eof())
     {
         getline(fileIn, line);
         ss << line;

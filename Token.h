@@ -31,70 +31,70 @@ class Token
 {
 public:
     Token()
-    : type(UNDEFINED), value(""), line(0) {}
+        : type(UNDEFINED), value(""), line(0) {}
     Token(TokenType type, std::string value, int line)
-    : type(type), value(value), line(line) {}
+        : type(type), value(value), line(line) {}
     ~Token() {}
 
     std::string typeName(TokenType type) const
     {
         std::string result = "";
-        switch(type)
+        switch (type)
         {
-            case COMMA:
-                result = "COMMA";
-                break;
-            case PERIOD:
-                result = "PERIOD";
-                break;
-            case Q_MARK:
-                result = "Q_MARK";
-                break;
-            case LEFT_PAREN:
-                result = "LEFT_PAREN";
-                break;
-            case RIGHT_PAREN:
-                result = "RIGHT_PAREN";
-                break;
-            case COLON:
-                result = "COLON";
-                break;
-            case COLON_DASH:
-                result = "COLON_DASH";
-                break;
-            case MULTIPLY:
-                result = "MULTIPLY";
-                break;
-            case ADD:
-                result = "ADD";
-                break;
-            case SCHEMES:
-                result = "SCHEMES";
-                break;
-            case FACTS:
-                result = "FACTS";
-                break;
-            case RULES:
-                result = "RULES";
-                break;
-            case QUERIES:
-                result = "QUERIES";
-                break;
-            case ID:
-                result = "ID";
-                break;
-            case STRING:
-                result = "STRING";
-                break;
-            case COMMENT:
-                result = "COMMENT";
-                break;
-            case UNDEFINED:
-                result = "UNDEFINED";
-                break;
-            case END:
-                result = "EOF";
-                break;
+        case COMMA:
+            result = "COMMA";
+            break;
+        case PERIOD:
+            result = "PERIOD";
+            break;
+        case Q_MARK:
+            result = "Q_MARK";
+            break;
+        case LEFT_PAREN:
+            result = "LEFT_PAREN";
+            break;
+        case RIGHT_PAREN:
+            result = "RIGHT_PAREN";
+            break;
+        case COLON:
+            result = "COLON";
+            break;
+        case COLON_DASH:
+            result = "COLON_DASH";
+            break;
+        case MULTIPLY:
+            result = "MULTIPLY";
+            break;
+        case ADD:
+            result = "ADD";
+            break;
+        case SCHEMES:
+            result = "SCHEMES";
+            break;
+        case FACTS:
+            result = "FACTS";
+            break;
+        case RULES:
+            result = "RULES";
+            break;
+        case QUERIES:
+            result = "QUERIES";
+            break;
+        case ID:
+            result = "ID";
+            break;
+        case STRING:
+            result = "STRING";
+            break;
+        case COMMENT:
+            result = "COMMENT";
+            break;
+        case UNDEFINED:
+            result = "UNDEFINED";
+            break;
+        case END:
+            result = "EOF";
+            break;
         }
         return result;
     }
