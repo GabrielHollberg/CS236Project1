@@ -23,7 +23,8 @@ enum TokenType
     ID,
     STRING,
     COMMENT,
-    UNDEFINED
+    UNDEFINED,
+    END
 };
 
 class Token
@@ -90,6 +91,9 @@ public:
                 break;
             case UNDEFINED:
                 result = "UNDEFINED";
+                break;
+            case END:
+                result = "EOF";
                 break;
         }
         return result;
